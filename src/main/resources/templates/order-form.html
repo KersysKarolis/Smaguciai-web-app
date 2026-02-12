@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org", charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Užsakymas</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs/lib/stomp.min.js"></script>
+</head>
+
+<body>
+<h2>Naujas užsakymas</h2>
+<form th:action="@{/order}" th:object="${order}" method="post">
+  <label>Šventės pradžia:</label>
+  <input type="datetime-local" th:field="*{startTime}"/><br><br>
+  <label>Šventės pabaiga:</label>
+  <input type="datetime-local" th:field="*{endTime}"/> <br><br>
+    <label>Žanras</label><br>
+  <select th:field="*{orderGenre}">
+    <option value ="">--Pasirinkti--</option>
+    <option th:each="g : ${genres}"
+            th:value="${g}"
+            th:text="${g}"></option>
+  </select><br><br>
+    <label>Vaiko vardas</label><br>
+    <input type="text" th:field="*{childName}" /><br><br>
+    <label>Vaiko amžius</label><br>
+    <input type="number" th:field="*{age}" /><br><br>
+    <label>Planuojamas vaikų skaičius</label><br>
+    <input type="number" th:field="*{amountOfChildren}" /><br><br>
+    <label>Personažas</label><br>
+    <select th:field="*{character}">
+      <option value ="">--Pasirinkti--</option>
+      <option th:each="c : ${character}"
+                th:value="${c}"
+                th:text="${c}"></option>
+    </select><br><br>
+    <label>Šventės Adresas</label><br>
+    <input type="text" th:field="*{location}" /><br><br>
+    <label>Kontaktinis telefonas</label><br>
+    <input type="text" th:field="*{phoneNumber}" /><br><br>
+  <label>Elektroninis paštas</label><br>
+  <input type="email" th:field="*{email}" />
+  <div th:if="${#fields.hasErrors('email')}"
+  th:errors="*{email}" class="error"></div><br><br>
+  <label>Pastabos</label><br>
+  <input type="text" th:field="*{notes}" /> <br><br>
+
+  <button type="submit">Pateikti uzsakyma</button>
+
+</form>
+</body>
+</html>

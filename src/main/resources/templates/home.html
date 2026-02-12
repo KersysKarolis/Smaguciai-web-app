@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org", charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+  <title th:text="${title}">Home</title>
+    <link rel ="stylesheet" th:href="@{/css/home.css}">
+</head>
+<body class="home-layout">
+<header class="home-header">
+    <div class="navigation-container">
+        <div id="header-images">
+<img th:each="img: ${images.header}" th:src="${img.fileName}" alt="" class="bg-image">
+        </div>
+        <button class="header-btn programa" data-url="/programos"></button>
+        <button class="header-btn personazai" data-url="/personazai"></button>
+        <button class="header-btn galerija" data-url="/galerija"></button>
+        <button class="header-btn atsiliepimai" data-url="/atsiliepimai"></button>
+        <button class="header-btn kontaktai" data-url="/kontaktai"></button>
+    </div>
+
+
+</header>
+<main>
+<div class="main-container">
+    <div class="content-apieMus">
+        <img th:each="img: ${images.about}" th:src="${img.fileName}" class="bg-image apie-mus">
+        <button class="image-btn"></button>
+        <p th:text="${aboutText}">Esame nedidele, bet labai stipri animatoriu komanda.</p>
+        <a href="/order">Pateikti Uzsakyma</a>
+    </div>
+    <div  class="content-atsiliepimai">
+        <img src="/images/Atsiliepimai.png" class="bg-image">
+        <button class="image-btn"></button>
+        <h1 th:text="${heroTitle}">Personazai vaikams</h1>
+        <p>Serveris veikia, antra karta.</p>
+    </div>
+
+
+</div>
+</main>
+<footer>
+    <div class="content-contacts">
+    <button class="fb-contacts"></button>
+    </div>
+</footer>
+
+</body>
+<script th:src="@{/js/navigation.js}"></script>
+
+
+</html>
