@@ -12,15 +12,20 @@ import org.smaguciai.repositories.OrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Configuration
+@Component
 @RequiredArgsConstructor
 public class DataInitializer {
 
     private final OrderRepository orderRepository;
     private final HomeImageRepository imageRepository;
+    public DataInitializer(OrderRepository repository, HomeImageRepository homeImageRepository){
+        this.orderRepository=repository;
+        this.imageRepository=homeImageRepository;
+    }
     @Bean
     CommandLineRunner initData() {
         return args -> {
