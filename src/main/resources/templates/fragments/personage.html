@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www/thymeleaf.org" >
+
+<body>
+<section th:fragment="personage" class="personage__section" id="personage">
+    <div class="personage__bg"></div>
+    <div class="personage__strip">
+        <h2>PERSONAZAI</h2>
+    </div>
+    <div class="personage__content__container">
+
+        <div class="personage__text__container">
+            <div class="personage__text__content--upper">
+                <p class="upper" th:text="${personageUpper}">Virsutinis tekstas Admin</p>
+            </div>
+            <div class="personage__text__content--lower">
+                <p class="lower" th:text="${personageLower}">Apatinis tekstas Admin</p>
+            </div>
+         </div>
+
+        <div class="personage__gallery__container">
+            <div class="personage__item__row">
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.liutukas != null}"
+                th:src="${images['home.personage.image'].liutukas.fileName}"
+                alt="">
+                <h3>LIUTUKAS</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.stitcas != null}"
+                     th:src="${images['home.personage.image'].stitcas.fileName}"
+                     alt="">
+                <h3>STITCAS</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.vienarage != null}"
+                     th:src="${images['home.personage.image'].vienarage.fileName}"
+                     alt="">
+                <h3>VIENARAGE</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.drugelis != null}"
+                     th:src="${images['home.personage.image'].drugelis.fileName}"
+                     alt="">
+                <h3>DRUGELIS</h3>
+            </div>
+            </div>
+                <div class="personage__item__row">
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.feja != null}"
+                     th:src="${images['home.personage.image'].feja.fileName}"
+                     alt="">
+                <h3>FEJA</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                     th:src="${images['home.personage.image'].treciadiene.fileName}"
+                     alt="">
+                <h3>TRECIADIENE</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.elza != null}"
+                     th:src="${images['home.personage.image'].elza.fileName}"
+                     alt="">
+                <h3>ELZA</h3>
+            </div>
+            <div class="personage__item">
+                <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                     th:src="${images['home.personage.image'].klouniuke.fileName}"
+                     alt="">
+                <h3>KLOUNIUKE</h3>
+            </div>
+            </div>
+            <div class="personage__item__row">
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.feja != null}"
+                         th:src="${images['home.personage.image'].feja.fileName}"
+                         alt="">
+                    <h3>FEJA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                         th:src="${images['home.personage.image'].treciadiene.fileName}"
+                         alt="">
+                    <h3>TRECIADIENE</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.elza != null}"
+                         th:src="${images['home.personage.image'].elza.fileName}"
+                         alt="">
+                    <h3>ELZA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                         th:src="${images['home.personage.image'].klouniuke.fileName}"
+                         alt="">
+                    <h3>KLOUNIUKE</h3>
+                </div>
+            </div>
+            <div class="personage__item__row">
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.feja != null}"
+                         th:src="${images['home.personage.image'].feja.fileName}"
+                         alt="">
+                    <h3>FEJA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                         th:src="${images['home.personage.image'].treciadiene.fileName}"
+                         alt="">
+                    <h3>TRECIADIENE</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.elza != null}"
+                         th:src="${images['home.personage.image'].elza.fileName}"
+                         alt="">
+                    <h3>ELZA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                         th:src="${images['home.personage.image'].klouniuke.fileName}"
+                         alt="">
+                    <h3>KLOUNIUKE</h3>
+                </div>
+            </div>
+            <div class="personage__item__row">
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.feja != null}"
+                         th:src="${images['home.personage.image'].feja.fileName}"
+                         alt="">
+                    <h3>FEJA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                         th:src="${images['home.personage.image'].treciadiene.fileName}"
+                         alt="">
+                    <h3>TRECIADIENE</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.elza != null}"
+                         th:src="${images['home.personage.image'].elza.fileName}"
+                         alt="">
+                    <h3>ELZA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                         th:src="${images['home.personage.image'].klouniuke.fileName}"
+                         alt="">
+                    <h3>KLOUNIUKE</h3>
+                </div>
+            </div>
+            <div class="personage__item__row">
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.feja != null}"
+                         th:src="${images['home.personage.image'].feja.fileName}"
+                         alt="">
+                    <h3>FEJA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                         th:src="${images['home.personage.image'].treciadiene.fileName}"
+                         alt="">
+                    <h3>TRECIADIENE</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.elza != null}"
+                         th:src="${images['home.personage.image'].elza.fileName}"
+                         alt="">
+                    <h3>ELZA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                         th:src="${images['home.personage.image'].klouniuke.fileName}"
+                         alt="">
+                    <h3>KLOUNIUKE</h3>
+                </div>
+            </div>
+            <div class="personage__item__row">
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.feja != null}"
+                         th:src="${images['home.personage.image'].feja.fileName}"
+                         alt="">
+                    <h3>FEJA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.treciadiene != null}"
+                         th:src="${images['home.personage.image'].treciadiene.fileName}"
+                         alt="">
+                    <h3>TRECIADIENE</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.elza != null}"
+                         th:src="${images['home.personage.image'].elza.fileName}"
+                         alt="">
+                    <h3>ELZA</h3>
+                </div>
+                <div class="personage__item">
+                    <img th:if="${images['home.personage.image']?.klouniuke != null}"
+                         th:src="${images['home.personage.image'].klouniuke.fileName}"
+                         alt="">
+                    <h3>KLOUNIUKE</h3>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

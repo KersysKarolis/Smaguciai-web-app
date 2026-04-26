@@ -26,10 +26,10 @@ public class ImageService {
 
     @Value("${file.upload-dir}")
     private String uploadDir;
-    public Optional<HomeImage> getBySectionAndPosition(String section, int position){
-        return repository.findBySectionAndPosition(section, position);
+    public Optional<HomeImage> getBySectionAndContentKey(String section, String contentKey){
+        return repository.findBySectionAndContentKey(section, contentKey);
     }
-    public void saveOrUpdate (String section, int position, MultipartFile file)throws IOException {
+    public void saveOrUpdate (String section, String contentKey, MultipartFile file)throws IOException {
         if(file.isEmpty()) return;
         Path uploadPath = Paths.get(uploadDir);
         Files.createDirectories(uploadPath);
@@ -40,15 +40,15 @@ public class ImageService {
         Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
         HomeImage image = repository
-                .findBySectionAndPosition(section, position)
-                .orElse(new HomeImage(section, null, position));
+                .findBySectionAndContentKey(section, contentKey)
+                .orElse(new HomeImage(section, null, contentKey));
 
         image.setFileName("/uploads/" + fileName);
         repository.save(image);
     }
 
-    public void delete (String section, int position){
-         repository.deleteBySectionAndPosition(section, position);
+    public void delete (String section, String contentKey){
+         repository.deleteBySectionAndContentKey(section, contentKey);
     }
 
 }

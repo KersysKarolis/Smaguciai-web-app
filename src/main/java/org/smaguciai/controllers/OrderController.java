@@ -1,6 +1,7 @@
 package org.smaguciai.controllers;
 
 import jakarta.validation.Valid;
+import org.smaguciai.dto.CreateOrderDto;
 import org.smaguciai.entities.Order;
 import org.smaguciai.enumerators.Characters;
 import org.smaguciai.enumerators.OrderGenre;
@@ -21,17 +22,28 @@ public class OrderController {
     }
     @GetMapping("/order")
     public String orderForm(Model model){
-    model.addAttribute("order", new Order());
+    model.addAttribute("order", new CreateOrderDto());
     model.addAttribute("character", Characters.values());
     model.addAttribute("genres", OrderGenre.values());
     return "order-form";
     }
     @PostMapping("/order")
-    public String submitOrder(@Valid @ModelAttribute Order order, BindingResult bindingResult){
+    public String submitOrder(@Valid @ModelAttribute("order") CreateOrderDto request, BindingResult bindingResult, Model model){
        if(bindingResult.hasErrors()){
+           model.addAttribute("order", new CreateOrderDto());
+           model.addAttribute("character", Characters.values());
+           model.addAttribute("genres", OrderGenre.values());
            return"order-form";
        }
-        service.create(order);
+       try {
+           service.create(request);
+       } catch(IllegalStateException ex){
+           model.addAttribute("globalError", ex.getMessage());
+           return "order-form";
+       } catch(IllegalArgumentException ex){
+           bindingResult.rejectValue("startTime", "error.startTime", ex.getMessage());
+           return "order-form";
+       }
         return "redirect:/";
     }
 }

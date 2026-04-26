@@ -1,6 +1,10 @@
 package org.smaguciai.services;
 
 import jakarta.transaction.Transactional;
+import org.smaguciai.converters.OrderConverter;
+import org.smaguciai.dto.CreateOrderDto;
+import org.smaguciai.dto.OrderResponseDto;
+import org.smaguciai.dto.UpdateOrderDto;
 import org.smaguciai.entities.Order;
 import org.smaguciai.enumerators.OrderStatus;
 import org.smaguciai.enumerators.Performer;
@@ -10,6 +14,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,13 +23,18 @@ public class OrderService {
     private final ApplicationEventPublisher applicationEventPublisher;
     private final OrderRepository repository;
     private final SimpMessagingTemplate messagingTemplate;
+    private final OrderConverter converter;
 
-    public OrderService(OrderRepository repository, SimpMessagingTemplate messagingTemplate, ApplicationEventPublisher publisher){
+    public OrderService(OrderConverter converter, OrderRepository repository, SimpMessagingTemplate messagingTemplate, ApplicationEventPublisher publisher){
         this.repository = repository;
         this.messagingTemplate = messagingTemplate;
         this.applicationEventPublisher=publisher;
+        this.converter = converter;
     }
-    public Order create (Order order){
+    @Transactional
+    public Order create (CreateOrderDto orderDto){
+        Order order = converter.createOrderDtoToOrder(orderDto);
+        validateTimeRange(order.getStartTime(), order.getEndTime());
         order.setStatus(OrderStatus.LAUKIAMAS);
         Order saved = repository.save(order);
         messagingTemplate.convertAndSend("/topic/orders/pending", saved);
@@ -33,38 +43,51 @@ public class OrderService {
     @Transactional
     public Order updateStatusAndPerfomer(Long id, OrderStatus orderStatus, Performer performer){
         Order updatedOrder = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" + id));
+        validateNoTimeConflict(updatedOrder.getStartTime(), updatedOrder.getEndTime(), performer);
         updatedOrder.setStatus(orderStatus);
         updatedOrder.setPerformer(performer);
         if(updatedOrder.getStatus() == OrderStatus.PRIIMTAS){
             messagingTemplate.convertAndSend("/topic/orders/approved", updatedOrder);
         }
-        applicationEventPublisher.publishEvent(new OrderApprovedEvent(updatedOrder));
+        if(updatedOrder.getStatus() == OrderStatus.PRIIMTAS) {
+            applicationEventPublisher.publishEvent(new OrderApprovedEvent(updatedOrder));
+        }
         return updatedOrder;
     }
     @Transactional
-    public Order rejectOrder(Long id, OrderStatus orderStatus){
+    public OrderResponseDto rejectOrder(Long id, OrderStatus orderStatus){
         Order updatedOrder = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Order not found" + id));
         updatedOrder.setStatus(orderStatus);
-        return updatedOrder;
+        return converter.orderToOrderResponseDto(updatedOrder);
     }
     @Transactional
-    public Order updateOrder(Long id, Order order){
+    public OrderResponseDto updateOrder(Long id, UpdateOrderDto order){
+        if(order.getStartTime().isAfter(order.getEndTime())) {
+        throw new IllegalArgumentException("Neteisingas laikas");
+        }
         Order updatedOrder = repository.findById(id).orElseThrow(()-> new IllegalArgumentException("Order not found"));
-        updatedOrder.setChildName(order.getChildName());
-        updatedOrder.setOrderGenre(order.getOrderGenre());
-        updatedOrder.setStatus(order.getStatus());
-        updatedOrder.setPerformer(order.getPerformer());
-        updatedOrder.setAge(order.getAge());
-        updatedOrder.setAmountOfChildren(order.getAmountOfChildren());
-        updatedOrder.setCharacter(order.getCharacter());
-        updatedOrder.setLocation(order.getLocation());
-        updatedOrder.setEmail(order.getEmail());
-        updatedOrder.setNotes(order.getNotes());
-        updatedOrder.setPhoneNumber(order.getPhoneNumber());
-       return updatedOrder;
+        converter.updateOrderDtoToOrder(updatedOrder, order);
+       return converter.orderToOrderResponseDto(updatedOrder);
     }
     public void deleteOrder(Long id){
         repository.deleteById(id);
+    }
+    private void validateTimeRange(LocalDateTime start, LocalDateTime end){
+        if(start == null || end ==null){
+            throw new IllegalArgumentException("Privalote nurodyti laiką");
+        }
+        if(start.isAfter(end) || start.isEqual(end)){
+            throw new IllegalArgumentException("Neteisingas laiko intervalas");
+        }
+        if(start.isBefore(LocalDateTime.now())){
+            throw new IllegalArgumentException("Pasirinktas laikas baigėsi");
+        }
+    }
+    private void validateNoTimeConflict(LocalDateTime start, LocalDateTime end, Performer performer){
+        boolean exists = repository.existsByStartTimeLessThanAndEndTimeGreaterThanAndStatusAndPerformer(end,start,OrderStatus.PRIIMTAS,performer);
+        if(exists){
+            throw new IllegalStateException("Pasirinktas laikas užimtas");
+        }
     }
     public List<Order> orderList (){
         return repository.findAll();

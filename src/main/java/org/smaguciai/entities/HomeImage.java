@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="home_images",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"section", "position"})
+        uniqueConstraints = @UniqueConstraint(columnNames = {"section", "contentKey"})
 )
 public class HomeImage {
     @Id
@@ -12,14 +12,14 @@ public class HomeImage {
     private Long id;
     private String section; // header, about, etc..
     private String fileName;
-    private int position; // eiliskumas 0-5
+    private String contentKey; // eiliskumas 0-5
 
     protected HomeImage(){}
 
-    public HomeImage(String section, String fileName, int position) {
+    public HomeImage(String section, String fileName, String contentKey) {
         this.section = section;
         this.fileName = fileName;
-        this.position = position;
+        this.contentKey = contentKey;
     }
 
     public String getSection() {
@@ -38,11 +38,11 @@ public class HomeImage {
         this.fileName = fileName;
     }
 
-    public int getPosition() {
-        return position;
+    public String getContentKey() {
+        return contentKey;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void setContentKey(String contentKey) {
+        this.contentKey = contentKey;
     }
 }

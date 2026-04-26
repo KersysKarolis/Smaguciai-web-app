@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="hero" class="hero">
+    <!-- dekoratyvinis background
+    <div class="hero-bg-decor "></div>
+    random dekoru sluoksnis
+    <div class="decor-layer" id="hero-decor"></div>
+        logo tekstas-->
+    <div class="hero-content">
+        <img th:if="${images['home.header.image']?.banner !=null}"
+                 th:src="${images['home.header.image'].banner.fileName}"
+                 alt="">
+      <!--  <h1 th:text="${heroTitle}">SMAGUCIAI</h1>
+        <p th:text="${heroSubtitle}">Personazai vaikams</p> -->
+    </div>
+
+</div>
+</body>
+</html>

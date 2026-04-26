@@ -1,5 +1,7 @@
 package org.smaguciai.controllers;
 
+import org.smaguciai.dto.OrderResponseDto;
+import org.smaguciai.dto.UpdateOrderDto;
 import org.smaguciai.entities.Order;
 import org.smaguciai.enumerators.OrderStatus;
 import org.smaguciai.enumerators.Performer;
@@ -33,7 +35,7 @@ public class AdminRestController {
 
     }
     @PostMapping("/api/admin/orders/{id}/rejected")
-    public ResponseEntity<Order> rejectedOrder(@PathVariable Long id){
+    public ResponseEntity<OrderResponseDto> rejectedOrder(@PathVariable Long id){
         return ResponseEntity.ok(service.rejectOrder(id, OrderStatus.ATMESTA));
     }
     @GetMapping("/admin/orders/pending")
@@ -46,7 +48,7 @@ public class AdminRestController {
         return service.getOrdersByStatus(OrderStatus.PRIIMTAS);
     }
     @PutMapping("/api/admin/orders/{id}")
-    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order updated){
+    public ResponseEntity<OrderResponseDto> updateOrder(@PathVariable Long id, @RequestBody UpdateOrderDto updated){
         return ResponseEntity.ok(service.updateOrder(id, updated));
     }
     @DeleteMapping("/api/admin/orders/{id}")
@@ -58,25 +60,25 @@ public class AdminRestController {
     @PostMapping("/admin/content/updateImage")
     public ResponseEntity<Void> updateImage(@RequestParam MultipartFile file,
                               @RequestParam String section,
-                              @RequestParam int position)throws IOException {
-       imageService.saveOrUpdate(section, position, file);
+                              @RequestParam String contentKey)throws IOException {
+       imageService.saveOrUpdate(section, contentKey, file);
         return ResponseEntity.ok().build();
     }
     @GetMapping("/admin/content/getImage")
     @ResponseBody
-    public ResponseEntity<HomeImageDto> getImage (@RequestParam String section, @RequestParam int position){
-        return imageService.getBySectionAndPosition(section, position)
+    public ResponseEntity<HomeImageDto> getImage (@RequestParam String section, @RequestParam String contentKey){
+        return imageService.getBySectionAndContentKey(section, contentKey)
                 .map(image -> new HomeImageDto(
                         image.getSection(),
                         image.getFileName(),
-                        image.getPosition()
+                        image.getContentKey()
                 ))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.noContent().build());
     }
     @PostMapping("admin/content/deleteImage")
     public void deleteImage(@RequestBody HomeImageDto dto){
-        imageService.delete(dto.section(), dto.position());
+        imageService.delete(dto.section(), dto.contentKey());
     }
 }
 

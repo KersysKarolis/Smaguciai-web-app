@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<section th:fragment="program" class="program-section" id="programos">
+
+  <div class="program__bg"></div>
+  <div class="program__strip__container program__strip">
+    <div class="program__strip__text">
+      <h2>PROGRAMA</h2>
+    </div>
+  </div>
+  <div class="program-section-container">
+  <div class="program__about__text">
+    <p th:text="${programText}">Redaguomajamas tekstas></p>
+  </div>
+
+  <div class="program__container">
+
+    <div class="program__item program__item--left program__content--purple">
+      <div class="program__image program__image-left">
+        <img th:if="${images['home.program.image']?.teminiai != null}"
+             th:src="${images['home.program.image'].teminiai.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>TEMINIAI ŽAIDIMAI</h3>
+        <p>Judrios, aktyvios, kūrybiškos užduotys, turnyrai ir kitos linksmybės, susijusios su pasirinkto personažo istorija</p>
+      </div>
+    </div>
+
+    <div class="program__item program__item--right program__content--red">
+      <div class="program__image program__image-right">
+        <img th:if="${images['home.program.image']?.muzikiniai !=null}"
+        th:src="${images['home.program.image'].muzikiniai.fileName}"
+        alt="">
+      </div>
+      <div class="program__content">
+        <h3>MUZIKINIAI ZAIDIMAI</h3>
+        <p>Šokių kovos, muzikinės salos, ritmo ir dainavimo iššūkiai, diskotekos</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--left program__content--orange">
+      <div class="program__image program__image-left">
+        <img th:if="${images['home.program.image']?.ekspermentai !=null}"
+             th:src="${images['home.program.image'].ekspermentai.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>EKSPERMENTAI</h3>
+        <p>Magiški eksperimentai su sausu ledu - debesų fiesta ir garuojančios putos</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--right program__content--pink">
+      <div class="program__image program__image-right">
+        <img th:if="${images['home.program.image']?.burbulinis !=null}"
+             th:src="${images['home.program.image'].burbulinis.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>BURBULINIS SLAIMAS</h3>
+        <p>Spalvoti slaimo burbulai, pučiami su šiaudeliais</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--left program__content--blue">
+      <div class="program__image program__image-left">
+        <img th:if="${images['home.program.image']?.laikinos !=null}"
+             th:src="${images['home.program.image'].laikinos.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>LAIKINOS TATUIRUOTES</h3>
+        <p>Žaismingos, kokybiškos ir vaikų mylimos kūno puošmenėlės</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--right program__content--orange">
+      <div class="program__image program__image-right">
+        <img th:if="${images['home.program.image']?.veiduku !=null}"
+             th:src="${images['home.program.image'].veiduku.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>VEIDUKU PUOSIMAS</h3>
+        <p>Veidukų piešimas ar kūno blizgučiai - laukiamiausia šventės dalis</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--left program__content--red">
+      <div class="program__image program__image-left">
+        <img th:if="${images['home.program.image']?.balionu !=null}"
+             th:src="${images['home.program.image'].balionu.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>BALIONU LANKSTYMAS</h3>
+        <p>Linksmų figūrėlių dovanėlės</p>
+      </div>
+
+    </div>
+    <div class="program__item program__item--right program__content--purple">
+      <div class="program__image program__image-right">
+        <img th:if="${images['home.program.image']?.pabaiga !=null}"
+             th:src="${images['home.program.image'].pabaiga.fileName}"
+             alt="">
+      </div>
+      <div class="program__content">
+        <h3>PABAIGA</h3>
+        <p>Fotosesija, žvakučių pūtimas ir torto pjovimas</p>
+      </div>
+
+    </div>
+  </div>
+<div class="program__additional__container">
+    <div class="program__additional__paslaugos">
+      <h3>Papildomos pramogos</h3>
+    </div>
+    <div class="additional__paslaugu__container">
+      <div class="additional__item">
+        <h4>PINJATA</h4>
+        <img th:if="${images['home.program.image']?.pinjata != null}"
+        th:src="${images['home.program.image'].pinjata.fileName}"
+        alt="">
+        <h4>25 EUR.</h4>
+      </div>
+      <div class="additional__item">
+        <h4>PUNCH BOX</h4>
+        <img th:if="${images['home.program.image']?.punchBox != null}"
+             th:src="${images['home.program.image'].punchBox.fileName}"
+             alt="">
+        <h4>25 EUR.</h4>
+      </div>
+      <div class="additional__item">
+        <h4>CUKRAUS VATA</h4>
+        <img th:if="${images['home.program.image']?.sugar != null}"
+             th:src="${images['home.program.image'].sugar.fileName}"
+             alt="">
+        <h4>40 EUR.</h4>
+      </div>
+      <div class="additional__item">
+        <h4>BURBULU FIESTA</h4>
+        <img th:if="${images['home.program.image']?.bubble != null}"
+             th:src="${images['home.program.image'].bubble.fileName}"
+             alt="">
+        <h4>40 EUR.</h4>
+      </div>
+    </div>
+  </div>
+    <div class="program__additional__service__lower"></div>
+  </div>
+</section>
+</body>
+</html>
