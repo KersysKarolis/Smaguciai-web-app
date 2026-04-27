@@ -33,12 +33,6 @@ public HomeController(HomeContentRepository repository, HomeImageRepository imag
        model.addAttribute("programText", repository.findById("home.program.text").map(Content::getAllContent).orElse("Programos aprasymas koreguojamas per ADMIN panele"));
        model.addAttribute("personageUpper", repository.findById("home.personageUpper.text").map(Content::getAllContent).orElse("Personazu aprasymas koreguojamas per ADMIN"));
         model.addAttribute("personageLower", repository.findById("home.personageLower.text").map(Content::getAllContent).orElse("Personazu aprasymas koreguojamas per ADMIN"));
-       //model.addAttribute("headerImage", imageRepository.findBySectionAndPosition("home.header.image", 0));
-       //model.addAttribute("aboutImage", imageRepository.findBySectionAndPosition("home.about.image",0));
-
-    //  model.addAttribute("images", Map.of("header", imageRepository.findBySectionOrderByContentKey("home.header.image"),
-      //                                                "about", imageRepository.findBySectionOrderByContentKey("home.about.image")));
-    //                                                   "program", imageRepository.findBySectionOrderByPosition("home.program.image")));
         // map metodas
         Map<String, Map<String, HomeImage>> images = new HashMap<>();
         List<HomeImage> all = imageRepository.findAll();
