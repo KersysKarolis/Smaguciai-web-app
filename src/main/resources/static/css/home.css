@@ -441,15 +441,18 @@ top: -10px;
 .hamburger::after{
 top: 10px;
 }
-mobile-menu-toggle.active .hamburger{
+.mobile-menu-toggle.active .hamburger{
 background:transparent;
 
 }
-mobile-menu-toggle.active .hamburger::before{
+.mobile-menu-toggle.active:hover .hamburger span{
+background:white;
+}
+.mobile-menu-toggle.active .hamburger::before{
 top:0;
 transform: rotate(45deg);
 }
-mobile-menu-toggle.active .hamburger::after{
+.mobile-menu-toggle.active .hamburger::after{
 top:0;
 transform: rotate(-45deg);
 }

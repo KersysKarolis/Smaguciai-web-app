@@ -5,24 +5,39 @@
 <div th:fragment="navigation" class="nav-strip ">
     <div class="circle-container">
         <a th:href="@{#programos}" class="circle pink">Programa</a>
-        <a th:href="@{#personage}" class="circle pink">Personazai</a>
-        <a th:href="@{#atsiliepimai}" class="circle pink">Atsiliepimai</a>
-        <a th:href="@{/order}" class="circle pink">Prisijunk!</a>
-        <a th:href="@{#kontaktai}" class="circle pink">Susisiekime</a>
+        <a th:href="@{#personage}" class="circle blue">Personazai</a>
+        <a th:href="@{#atsiliepimai}" class="circle red">Atsiliepimai</a>
+        <a th:href="@{/order}" class="circle purple">Prisijunk!</a>
+        <a th:href="@{#kontaktai}" class="circle blue">Susisiekime</a>
     </div>
     <!-- Mobile Navigation -->
-    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-        <div class="hamburger"></div>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+        <div class="hamburger">
+            <span>
+            </span>
+            <span>
+            </span>
+            <span>
+            </span>
+        </div>
     </button>
 
-    <div class="mobile-nav">
-        <div class="mobile-nav-links">
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Meniu</h3>
+            <button class="mobile-nav-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+                <span>&times;</span>
+            </button>
+        </div>
+        <nav class="mobile-nav-links">
             <a th:href="@{#programos}" class="mobile-nav-link" onclick="toggleMobileMenu()">Programa</a>
             <a th:href="@{#personage}" class="mobile-nav-link" onclick="toggleMobileMenu()">Personazai</a>
             <a th:href="@{#atsiliepimai}" class="mobile-nav-link" onclick="toggleMobileMenu()">Atsiliepimai</a>
             <a th:href="@{/order}" class="mobile-nav-link" onclick="toggleMobileMenu()">Prisijunk!</a>
             <a th:href="@{#kontaktai}" class="mobile-nav-link" onclick="toggleMobileMenu()">Susisiekime</a>
-        </div>
+
+        </nav>
     </div>
 
     <div class="overlay" onclick="toggleMobileMenu()"></div>
