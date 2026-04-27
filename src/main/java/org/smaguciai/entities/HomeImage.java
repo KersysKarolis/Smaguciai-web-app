@@ -13,6 +13,23 @@ public class HomeImage {
     private String section; // header, about, etc..
     private String fileName;
     private String contentKey; // eiliskumas 0-5
+    private String publicId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPublicId() {
+        return publicId;
+    }
+
+    public void setPublicId(String publicId) {
+        this.publicId = publicId;
+    }
 
     protected HomeImage(){}
 
