@@ -10,6 +10,23 @@
         <a th:href="@{/order}" class="circle pink">Prisijunk!</a>
         <a th:href="@{#kontaktai}" class="circle pink">Susisiekime</a>
     </div>
+    <!-- Mobile Navigation -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <div class="hamburger"></div>
+    </button>
+
+    <div class="mobile-nav">
+        <div class="mobile-nav-links">
+            <a th:href="@{/#programos}" class="mobile-nav-link" onclick="toggleMobileMenu()">Programa</a>
+            <a th:href="@{/#personage}" class="mobile-nav-link" onclick="toggleMobileMenu()">Personazai</a>
+            <a th:href="@{/#atsiliepimai}" class="mobile-nav-link" onclick="toggleMobileMenu()">Atsiliepimai</a>
+            <a th:href="@{/order}" class="mobile-nav-link" onclick="toggleMobileMenu()">Prisijunk!</a>
+            <a th:href="@{/#kontaktai}" class="mobile-nav-link" onclick="toggleMobileMenu()">Susisiekime</a>
+        </div>
+    </div>
+
+    <div class="overlay" onclick="toggleMobileMenu()"></div>
+
 
 
 </div>
