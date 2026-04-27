@@ -1,16 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-const buttons = document.querySelectorAll("button[data-url]");
 
-buttons.forEach(button => {
-button.addEventListener("click", () => {
-const target = button.getAttribute("data-url");
-if(target){
-window.location.href = target;
-}
-});
-});
 // Mobile menu toggle function
 window.toggleMobileMenu = function() {
+
+if (!menuToggle || !mobileNav || !overlay) {
+console.error('Mobile menu elements not found');
+return;
+}
+
 const menuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
 const overlay = document.querySelector('.overlay');
@@ -48,3 +44,15 @@ toggleMobileMenu();
 }
 }
 );
+
+document.addEventListener("DOMContentLoaded", () => {
+const buttons = document.querySelectorAll("button[data-url]");
+
+buttons.forEach(button => {
+button.addEventListener("click", () => {
+const target = button.getAttribute("data-url");
+if(target){
+window.location.href = target;
+}
+});
+});
