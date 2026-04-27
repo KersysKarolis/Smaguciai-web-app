@@ -19,8 +19,8 @@ public HomeController(HomeContentRepository repository, HomeImageRepository imag
     this.repository=repository;
     this.imageRepository=imageRepository;
 }
-    @GetMapping("/")
-    public String home(Model model){
+    @GetMapping("/constructionSite")
+    public String construction(Model model){
 
 
 
@@ -41,6 +41,10 @@ public HomeController(HomeContentRepository repository, HomeImageRepository imag
                     .put(img.getContentKey(), img);
         }
         model.addAttribute("images", images);
-        return "redirect:/login";
+        return "home";
     }
-}
+    @GetMapping("/")
+    public String home (Model model){
+    return "redirect:/login";
+    }
+    }
