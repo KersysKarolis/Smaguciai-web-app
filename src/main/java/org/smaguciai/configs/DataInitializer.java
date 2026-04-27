@@ -22,10 +22,7 @@ public class DataInitializer {
 
     private final OrderRepository orderRepository;
     private final HomeImageRepository imageRepository;
-    public DataInitializer(OrderRepository repository, HomeImageRepository homeImageRepository){
-        this.orderRepository=repository;
-        this.imageRepository=homeImageRepository;
-    }
+
     @Bean
     CommandLineRunner initData() {
         return args -> {
