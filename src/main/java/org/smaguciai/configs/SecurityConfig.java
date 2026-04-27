@@ -31,7 +31,7 @@ public class SecurityConfig {
                         "/uploads/**",
                                 "/h2-console/**").permitAll()
                         .requestMatchers("/admin/**", "/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/constructionSite").hasRole("ADMIN")
+                        .requestMatchers("/constructionSite/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .csrf(csrf ->csrf.ignoringRequestMatchers("/h2-console/**"))
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
