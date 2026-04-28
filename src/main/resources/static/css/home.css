@@ -614,7 +614,7 @@ word-wrap: break-word;
 @media (max-width: 780px) {
 
     .about-section{
-    height:71vh;
+    height: 130vw;
     }
     .decor-layer {
    background: url("/images/decor/ProgramBackground.svg");
@@ -623,7 +623,8 @@ word-wrap: break-word;
 
     }
     .about-wrapper {
-    margin: 0;
+     margin: 10vw;
+
     }
     .about-composition{
         margin:0;
