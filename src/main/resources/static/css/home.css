@@ -34,7 +34,9 @@ inset: 0;
 z-index: 0;
 pointer-events: none;
 overflow: hidden;
-background: url("/images/decor/ApieMusBackground.svg") repeat-y center/101%;
+background: url("/images/decor/ProgramBackground.svg");
+background-size: cover;
+transform: scaleX(-1);
 }
 .decor-rainbow{
 left: 5%;
@@ -105,7 +107,7 @@ font-size: 26px;
 color: var(--blue);
 }
 .blob{
-width:100%;
+width:95vh;
 height:auto;
 display:block;
 
@@ -232,11 +234,7 @@ background: #e91e63;
 .kontaktai{
 background: #4b5ca8;
 }
-/*  buves veikiantis css
-.home-header{
-height:50%;
-}
-*/
+
 /* naujas css */
 .home-header{
 position:relative;
@@ -273,13 +271,7 @@ background-repeat: no-repeat;
 }
 .logo{
 background-image: url("/images/Nav-bar-smaguciai.png");
-
-
-
-
 }
-
-
 .social-logo{
 background-image: url("/images/Header-smaguciai.png");
 
@@ -287,26 +279,8 @@ background-image: url("/images/Header-smaguciai.png");
 .about-section{
 position: relative;
 overflow: hidden;
-padding: clamp(135px; 8vw, 270px) 0;
-
+height: 100vh;
 }
-.about-star-1{
-top: 10%;
-right: 5%;
-width: 40px;
-}
-.about-dot-1{
-bottom: 15%;
-left: 8%;
-width: 20px;
-}
-.about-blob {
-bottom: 0;
-right: 0;
-width: 300px;
-}
-
-
 .about-title-strip{
 background: url("/images/decor/ProgramosLauzytaJuostaEdited.svg") no-repeat center/100%;
 text-align: center;
@@ -316,32 +290,29 @@ font-size: 24px;
 }
 
 .about-wrapper{
-max-width: 1200px;
-display: flex;
-align-items: center;
-gap: 60px;
-flex-wrap: wrap;
-justify-content:center;
-transform: translate(25%,16%);
+height: 100vh;
+margin: 25vh auto 0vh;
 }
 
-
-/*.about-images{
-flex: 1;
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
-justify-content: center;
-}*/
+.about-image{
+width: 50vh;
+height: 50vh;
+object-fit: cover;
+border-radius: 50%;
+border: 10px solid rgb(255, 213, 79);
+transform: translate(-27vh, -3vh);
+z-index: 2;
+position: absolute;
+}
 .about-image img{
-width: 350px;
+/*width: 350px;
 height: 350px;
 object-fit: cover;
 border-radius: 50%;
 border: 10px solid #ffd54f;
 transform: translate(-30%,5%);
 z-index:2;
-position:absolute;
+position:absolute;*/
 }
 .about-texttt{
 flex: 1;
@@ -352,35 +323,39 @@ border-radius: 50%;
 font-size: 18px;
 }
 .about-text{
-position:relative;
-max-width:600px;
-width:100%;
-aspect-ratio: 750 /520;
-z-index:1;
-transform: translate(10%,-4%);
+transform: translate(20vh, 5vh);
+position: static;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-sizing: border-box;
 }
 .about-composition{
 position:relative;
-max-width:1200px;
-margin:0 auto;
 display:flex;
-width:70%;
+justify-content:center;
+align-items:center;
+margin: 0 52vh 0;
+
 }
 .text-content{
-position:absolute;
+position:fixed;
 inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
-padding: 200px;
 text-align:center;
 color:white;
-transform: translate(3%,-2%);
+transform: translate(4%,-10%);
+border-radius: 50%;
 }
 
-text-content p{
-max-width:380px;
-margin: 0 auto;
+.text-content p{
+max-width: 47vh;
+margin: 0px auto;
+height: 20vh;
+font-size: 2.3vh;
 }
 
 .about-text p{
@@ -405,69 +380,84 @@ transition: 0.3s;
 .order-btn:hover{
 background: var(--purple);
 }
-.about-text{
-padding: 30px ;
-}
-.mobile-menu-toggle{
-display:none;
-background:none;
-border:none;
-cursor:pointer;
-padding:10px;
-z-index: 1001;
-position: fixed;
-top: 20px;
-right: 20px;
-}
-.hamburger{
-width: 30px;
-height: 3px;
-background: orange;
-position: relative;
-transition: 0.3s;
-}
-.hamburger::before,
-.hamburger::after{
-content: '';
-position:absolute;
-width: 30px;
-height: 3px;
-background: orange;
-transition: 0.3s;
-}
-.hamburger::before{
-top: -10px;
-}
-.hamburger::after{
-top: 10px;
-}
-.mobile-menu-toggle.active .hamburger{
-background:transparent;
 
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 6vh;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff9800, #ff5e62);
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.mobile-menu-toggle.active:hover .hamburger span{
-background:white;
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
-.mobile-menu-toggle.active .hamburger::before{
-top:0;
-transform: rotate(45deg);
+
+.hamburger {
+    position: relative;
+    width: 28px;
+    height: 3px;
+    background: white;
+    margin: auto;
+    border-radius: 3px;
+    transition: 0.3s;
 }
-.mobile-menu-toggle.active .hamburger::after{
-top:0;
-transform: rotate(-45deg);
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.mobile-menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.mobile-menu-toggle.active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
 }
 .mobile-nav{
 display:none;
 position: fixed;
-top: 0;
+top: 5vh;
 right: -100%;
 width: 80%;
 max-width: 300px;
-height: 100vh;
-background: rgba(255,255,255,0.95);
+height: 50vh;
+background: rgba(255, 182, 0, 0.32);
 backdrop-filter: blur(10px);
 z-index: 1000;
 transition: right 0.3s ease;
+border-radius:6%
 }
 .mobile-nav.active{
 right: 0;
@@ -476,11 +466,11 @@ right: 0;
 display: flex;
 flex-direction: column;
 gap: 20px;
+width:30vh;
 }
 .mobile-nav-link{
 display: block;
 padding: 15 px 20 px;
-background: orange;
 color: white;
 text-decoration: none;
 text-align: center;
@@ -506,22 +496,30 @@ z-index:999;
 .overlay.active{
 display: block;
 }
-@media(min-width: 1500px){
+@media(min-width: 1450px){
 .about-wrapper{
-transform:translateX(12%);
+
+}
+.about-section{
+height:90vh;
 }
 }
 
-
-@media(max-width: 768px){
-.mobile-menu-toggle{
-display:block;
-}
+/* ----------------------CIA YRA TELEFONINES VERSIJOS -----------------*/
+@media(max-width: 1250px){
+.mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 .nav-strip{
 display:none;
 }
 .mobile-nav{
-display:block;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 }
 .circle-container{
 display: none;
@@ -543,16 +541,10 @@ flex-direction: column;
 text-align:center;
 }
 .about-image img{
-width:150px;
-height:150px;
+
 }
-.about-text{
-max-width:200px;
-}
-.about-text img{
-width:150px;
-height:150px;
-}
+
+
 .decor-rainbow{
 width: 120px;
 }
@@ -562,7 +554,72 @@ width: 150px;
 .about-blob{
 width: 180px;
 }
+.hamburger span{
+display:block;
+width:30px;
+height:3px;
+background:orange;
+margin:5px 0;
 }
+.about-section{
+height: 130vh;
+}
+
+.decor-layer{
+background: url("/images/decor/ProgramBackground.svg") center/cover;
+transform:scaleX(-1);
+}
+.about-title-strip{
+font-size: 20px;
+}
+.about-wrapper{
+margin:20vh auto 0;
+}
+.about-composition{
+margin:0;
+flex-direction:column;
+}
+.about-image{
+position:static;
+width: 55vh;
+height: 55vh;
+transform: translate(-16vh);
+}
+.about-text{
+transform:translate(18vh, -34vh);
+position:static;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-sizing: border-box;
+}
+.about-text img{
+width:100vh;
+height:100vh;
+}
+.text-content{
+padding:0;
+position: fixed;
+transform: translate(4vh, 4vh);
+}
+.about-text p {
+width: 50vh;
+height: 40vh;
+word-wrap: break-word;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width: 480px){
 .header-btn{
 width: 70px;

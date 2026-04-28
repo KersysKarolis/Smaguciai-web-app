@@ -29,7 +29,7 @@ mobileNav.classList.toggle('active');
 overlay.classList.toggle('active');
 if(!isActive){
 document.body.style.overflow = 'hidden';
-document.body.style.position = 'fixed';
+document.body.style.position = '';
 } else{
 document.body.style.overflow = '';
 document.body.style.position = '';
@@ -46,14 +46,18 @@ if(closeButton) closeButton.focus();
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target) && mobileNav.classList.contains('active')) {
+if (!mobileNav || !menuToggle) return;
+if (
+!mobileNav.contains(e.target) &&
+!menuToggle.contains(e.target) &&
+mobileNav.classList.contains('active')) {
 toggleMobileMenu();
 }
 });
 
 // Close mobile menu on escape key
 document.addEventListener('keydown', (e) => {
-if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
+if (e.key === 'Escape'&& mobileNav.classList.contains('active')) {
 toggleMobileMenu();
 }
 });
