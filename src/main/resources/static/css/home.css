@@ -505,7 +505,7 @@ height:90vh;
 }
 }
 
-/* ----------------------CIA YRA TELEFONINES VERSIJOS -----------------*/
+/* ----------------------PLANCETINE VERSIJA -----------------*/
 @media(max-width: 1250px){
 .mobile-menu-toggle {
         display: flex;
@@ -608,6 +608,62 @@ width: 50vh;
 height: 40vh;
 word-wrap: break-word;
 }
+}
+
+/* ---------------------TELEFONINE VERSIJA ----------------------*/
+@media (max-width: 780px) {
+
+    .about-section{
+    height:71vh;
+    }
+    .decor-layer {
+   background: url("/images/decor/ProgramBackground.svg");
+   transform: scaleX(-1);
+   background-size: 100%;
+
+    }
+    .about-wrapper {
+    margin: 0;
+    }
+    .about-composition{
+        margin:0;
+        flex-direction:column;
+    }
+
+    .about-image{
+        position:static;
+        width:50vw;
+        height:50vw;
+        transform: translate(-16vw);
+    }
+
+    .about-text{
+        transform:translate(10vw, -19vw);
+        position:static;
+        border-radius:50%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        box-sizing:border-box;
+    }
+
+    .about-text img{
+        width:100vw;
+        height:80vw;
+    }
+
+    .text-content{
+        padding:0;
+        position:absolute;
+        transform: translate(3vw, 2vw);
+    }
+
+    .about-text p{
+        width:50vw;
+        height:auto;
+        word-wrap: break-word;
+        font-size: 2.6vw;
+    }
 }
 
 
