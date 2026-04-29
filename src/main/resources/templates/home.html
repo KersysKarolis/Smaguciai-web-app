@@ -6,6 +6,7 @@
     <link rel ="stylesheet" th:href="@{/css/home.css}">
     <link rel="stylesheet" th:href="@{/css/components/program.css}">
     <link rel="stylesheet" th:href="@{/css/components/personage.css}">
+
 </head>
 <body class="home-layout">
 <div th:replace="fragments/hero::hero"></div>
@@ -13,125 +14,11 @@
 <div th:replace="fragments/about::about"></div>
 <div th:replace="fragments/program::program"></div>
 <div th:replace="fragments/personage::personage"></div>
-<!-- antras header laukas po pakeitimu ->
-<header class="hero">
-    <div class="hero-bg"
-    th:each="img: ${images.header}"
-    th:style="|background-image: url('${img.fileName}')|">
-        <p th:text="${img.fileName}"></p>
-    </div>
-    <div class="hero-top"></div>
-    <div class="hero-content">
-        <h1 th:text="${heroTitle}">Personazai vaikams</h1>
-        <p>Linksma ir isimintina svente jusu maziesiems</p>
-    </div>
-    <div class="hero-wave"></div>
-</header>
-<section class="circle-navigation">
 
-        <div id="header-images">
-        <div th:each="img: ${images.header}"
-             th:style="|background-image: url('${img.fileName}')|"
-             class="header-bg"
-        ></div>
-
-        </div>
-        <button class="circle pink" data-url="/programos">Programa</button>
-        <button class="circle blue" data-url="/personazai">Personazai</button>
-        <button class="circle purple" data-url="/galerija">Galerija</button>
-        <button class="circle red" data-url="/atsiliepimai">Atsiliepimai</button>
-        <button class="circle blue" data-url="/kontaktai">Kontaktai</button>
-</section>
-<section class="about-section">
-    <div class="about-wrapper">
-        <div class="about-images">
-            <img th:each="img: ${images.about}"
-            th:src="${img.fileName}"
-            class="about-img">
-        </div>
-        <div class="about-content">
-            <h2>Susipazinkime!</h2>
-            <p th:text="${aboutText}">
-                Esame nedidele, bet labai stipri animatoriu komanda.
-            </p>
-            <a href="/order" class="order-btn">Pateikti uzsakyma</a>
-        </div>
-
-    </div>
-
-</section>
-<footer class="footer">
-    <div class="content-contacts">
-        <button class="fb-contacts"></button>
-    </div>
-</footer>
+<script defer th:src="@{/js/navigation.js}"></script>
+<script defer src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+<script defer th:src="@{/js/personage.js}"></script>
 
 
-veikiantis header laukas
-<header class="home-header">
-<div class="navigation-container">
-    <div id="header-images">
-        <img th:each="img: ${images.header}" th:src="${img.fileName}" alt="" class="bg-image">
-    </div>
-    <button class="header-btn programa" data-url="/programos"></button>
-    <button class="header-btn personazai" data-url="/personazai"></button>
-    <button class="header-btn galerija" data-url="/galerija"></button>
-    <button class="header-btn atsiliepimai" data-url="/atsiliepimai"></button>
-    <button class="header-btn kontaktai" data-url="/kontaktai"></button>
-</div>
-</header>
-<main>
-<div class="main-container">
-    <div class="content-apieMus">
-        <div th:each="img:${images.about}"
-                class="about-bg"
-                th:style="'background-image:url('+${img.fileName}+')'">
-
-        </div>
-        <div class="about-text">
-            <p th:text="${aboutText}">Esame nedidele, bet labai stipri animatoriu komanda.</p>
-            <a href="/order" class="order-btn">Pateikti Uzsakyma</a>
-        </div>
-    </div>
-    <div  class="content-atsiliepimai">
-        <img src="/images/Atsiliepimai.png" class="bg-image">
-        <button class="image-btn"></button>
-        <h1 th:text="${heroTitle}">Personazai vaikams</h1>
-        <p>Serveris veikia, antra karta.</p>
-    </div>
-
-
-</div>
-    pirminis about us
-   <div class="main-container">
-    <div class="content-apieMus">
-        <img th:each="img: ${images.about}" th:src="${img.fileName}" class="bg-image apie-mus">
-        <button class="image-btn"></button>
-        <p th:text="${aboutText}">Esame nedidele, bet labai stipri animatoriu komanda.</p>
-        <a href="/order">Pateikti Uzsakyma</a>
-    </div>
-    <div  class="content-atsiliepimai">
-        <img src="/images/Atsiliepimai.png" class="bg-image">
-        <button class="image-btn"></button>
-        <h1 th:text="${heroTitle}">Personazai vaikams</h1>
-        <p>Serveris veikia, antra karta.</p>
-    </div>
-
-
-</div>
-
-
-
-</main>
-<footer>
-    <div class="content-contacts">
-    <button class="fb-contacts"></button>
-    </div>
-</footer>
--->
 </body>
-<script th:src="@{/js/navigation.js}"></script>
-
-
-
 </html>

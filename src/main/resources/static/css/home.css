@@ -496,14 +496,11 @@ z-index:999;
 .overlay.active{
 display: block;
 }
-@media(min-width: 1450px){
-.about-wrapper{
 
-}
 .about-section{
 height:90vh;
 }
-}
+
 
 /* ----------------------PLANCETINE VERSIJA -----------------*/
 @media(max-width: 1250px){
@@ -609,9 +606,8 @@ height: 40vh;
 word-wrap: break-word;
 }
 }
-
 /* ---------------------TELEFONINE VERSIJA ----------------------*/
-@media (max-width: 780px) {
+@media (max-width: 768px) {
 
     .about-section{
     height: 130vw;
@@ -666,15 +662,6 @@ word-wrap: break-word;
         font-size: 2.6vw;
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 @media(max-width: 480px){
