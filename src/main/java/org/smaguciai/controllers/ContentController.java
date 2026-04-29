@@ -2,12 +2,15 @@ package org.smaguciai.controllers;
 
 import org.smaguciai.entities.Content;
 import org.smaguciai.entities.HomeImage;
+import org.smaguciai.enumerators.Characters;
 import org.smaguciai.events.ContentDto;
 import org.smaguciai.events.HomeImageDto;
 import org.smaguciai.repositories.HomeContentRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/admin/content")
@@ -29,30 +32,28 @@ public class ContentController {
 
     @GetMapping("/imageList")
         public List<HomeImageDto> imageList(){
-            return List.of(new HomeImageDto("home.header.image", "Header - nuotrauka POS0", "banner" ),
-                    new HomeImageDto("home.about.image", "About - nuotrauka POS0", "about"),
-                    new HomeImageDto("home.program.image", "Program - Temininai", "teminiai"),
-                    new HomeImageDto("home.program.image", "Program - Muzikiniai", "muzikiniai"),
-                    new HomeImageDto("home.program.image", "Program - Ekspermentai", "ekspermentai"),
-                    new HomeImageDto("home.program.image", "Program - Burbulinis", "burbulinis"),
-                    new HomeImageDto("home.program.image", "Program - Laikinos", "laikinos"),
-                    new HomeImageDto("home.program.image", "Program - Veiduku", "veiduku"),
-                    new HomeImageDto("home.program.image", "Program - Balionu", "balionu"),
-                    new HomeImageDto("home.program.image", "Program - Pabaiga", "pabaiga"),
-                    new HomeImageDto("home.program.image", "Program - Pinjata", "pinjata"),
-                    new HomeImageDto("home.program.image", "Program - PunchBox", "punchBox"),
-                    new HomeImageDto("home.program.image", "Program - Cukraus vata", "sugar"),
-                    new HomeImageDto("home.program.image", "Program - Burbulu fiesta", "bubble"),
-                    new HomeImageDto("home.personage.image", "Personazas - Liutukas", "liutukas"),
-                    new HomeImageDto("home.personage.image", "Personazas - Stitcas", "stitcas"),
-                    new HomeImageDto("home.personage.image", "Personazas - Vienarage", "vienarage"),
-                    new HomeImageDto("home.personage.image", "Personazas - Drugelis", "drugelis"),
-                    new HomeImageDto("home.personage.image", "Personazas - Feja", "feja"),
-                    new HomeImageDto("home.personage.image", "Personazas - Treciadiene", "treciadiene"),
-                    new HomeImageDto("home.personage.image", "Personazas - Elza", "elza"),
-                    new HomeImageDto("home.personage.image", "Personazas - Klouniuke", "klouniuke")
-                    );
+           List<HomeImageDto> list = new ArrayList<>(List.of(new HomeImageDto("home.header.image", "Header - nuotrauka POS0", "banner" ,""),
+                    new HomeImageDto("home.about.image", "About - nuotrauka POS0", "about",""),
+                    new HomeImageDto("home.program.image", "Program - Temininai", "teminiai",""),
+                    new HomeImageDto("home.program.image", "Program - Muzikiniai", "muzikiniai",""),
+                    new HomeImageDto("home.program.image", "Program - Ekspermentai", "ekspermentai",""),
+                    new HomeImageDto("home.program.image", "Program - Burbulinis", "burbulinis",""),
+                    new HomeImageDto("home.program.image", "Program - Laikinos", "laikinos",""),
+                    new HomeImageDto("home.program.image", "Program - Veiduku", "veiduku",""),
+                    new HomeImageDto("home.program.image", "Program - Balionu", "balionu",""),
+                    new HomeImageDto("home.program.image", "Program - Pabaiga", "pabaiga",""),
+                    new HomeImageDto("home.program.image", "Program - Pinjata", "pinjata","PINJATA"),
+                    new HomeImageDto("home.program.image", "Program - PunchBox", "punchBox","PUNCHBOX"),
+                    new HomeImageDto("home.program.image", "Program - Cukraus vata", "sugar", "CUKRAUS VATA"),
+                    new HomeImageDto("home.program.image", "Program - Burbulu fiesta", "bubble","BURBULŲ FIESTA")
+                   ));
+           for(Characters c: Characters.values()){
+               String title = c == Characters.TREČIADIENĖ?"TREČIA-<br>DIENĖ": c.getLabel().toUpperCase(new Locale("lt", "LT"));
 
+               list.add(new HomeImageDto("home.personage.image", "Personazas - "+ c.getLabel(),c.getLabel(),title.toUpperCase(new Locale("lt","LT"))));
+
+           }
+        return list;
         }
 
     @GetMapping("/get")
