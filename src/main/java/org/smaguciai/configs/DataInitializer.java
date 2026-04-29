@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 @Component
 @RequiredArgsConstructor
@@ -32,33 +33,40 @@ public class DataInitializer {
         };
     }
     private void initImages(){
-        createIfMissing("home.header.image", "banner");
-        createIfMissing("home.about.image", "about");
-        createIfMissing("home.program.image", "teminiai");
-        createIfMissing("home.program.image", "muzikiniai");
-        createIfMissing("home.program.image", "ekspermentai");
-        createIfMissing("home.program.image", "burbulinis");
-        createIfMissing("home.program.image", "laikinos");
-        createIfMissing("home.program.image", "veiduku");
-        createIfMissing("home.program.image", "balionu");
-        createIfMissing("home.program.image", "pabaiga");
-        createIfMissing("home.program.image", "pinjata");
-        createIfMissing("home.program.image", "punchBox");
-        createIfMissing("home.program.image", "sugar");
-        createIfMissing("home.program.image", "bubble");
-        createIfMissing("home.personage.image", "liutukas");
-        createIfMissing("home.personage.image", "stitcas");
-        createIfMissing("home.personage.image","vienarage");
-        createIfMissing("home.personage.image","drugelis");
-        createIfMissing("home.personage.image","feja");
-        createIfMissing("home.personage.image","treciadiene");
-        createIfMissing("home.personage.image","elza");
-        createIfMissing("home.personage.image","klouniuke");
+        createIfMissing("home.header.image", "banner","");
+        createIfMissing("home.about.image", "about","");
+        createIfMissing("home.program.image", "teminiai","");
+        createIfMissing("home.program.image", "muzikiniai","");
+        createIfMissing("home.program.image", "ekspermentai","");
+        createIfMissing("home.program.image", "burbulinis","");
+        createIfMissing("home.program.image", "laikinos","");
+        createIfMissing("home.program.image", "veiduku","");
+        createIfMissing("home.program.image", "balionu","");
+        createIfMissing("home.program.image", "pabaiga","");
+        createIfMissing("home.program.image", "pinjata","PINJATA");
+        createIfMissing("home.program.image", "punchBox","PUNCHBOX");
+        createIfMissing("home.program.image", "sugar","CUKRAUS VATA");
+        createIfMissing("home.program.image", "bubble","BURBULŲ FIESTA");
+
+        for(Characters e:Characters.values()){
+            String title = e ==Characters.TREČIADIENĖ?"TREČIA-<br>DIENĖ": e.getLabel().toUpperCase(new Locale("lt","LT"));
+            createIfMissing("home.personage.image", e.getLabel(), e.getLabel().toUpperCase(new Locale("lt","LT")));
+
+        }
+        /*createIfMissing("home.personage.image", "liutukas","LIŪTUKAS");
+        createIfMissing("home.personage.image", "stitcas","STITČAS");
+        createIfMissing("home.personage.image","vienarage","VIENARAGĖ");
+        createIfMissing("home.personage.image","drugelis","DRUGELIS");
+        createIfMissing("home.personage.image","feja","FĖJA");
+        createIfMissing("home.personage.image","treciadiene","TREČIA-<br>DIENĖ");
+        createIfMissing("home.personage.image","elza","ELZA");
+        createIfMissing("home.personage.image","klouniuke","KLOUNIUKĖ");
+        */
     }
 
-    private void createIfMissing(String section, String contentKey) {
+    private void createIfMissing(String section, String contentKey,String title) {
         imageRepository.findBySectionAndContentKey(section, contentKey)
-                .orElseGet(()->imageRepository.save(new HomeImage(section, null, contentKey)));
+                .orElseGet(()->imageRepository.save(new HomeImage(section, null, contentKey,title)));
     }
 
     private void initOrders() {

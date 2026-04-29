@@ -15,6 +15,16 @@ public class HomeImage {
     private String contentKey; // eiliskumas 0-5
     private String publicId;
 
+    private String imageTitle;
+
+    public String getImageTitle() {
+        return imageTitle;
+    }
+
+    public void setImageTitle(String imageTitle) {
+        this.imageTitle = imageTitle;
+    }
+
     public Long getId() {
         return id;
     }
@@ -33,10 +43,11 @@ public class HomeImage {
 
     protected HomeImage(){}
 
-    public HomeImage(String section, String fileName, String contentKey) {
+    public HomeImage(String section, String fileName, String contentKey, String imageTitle) {
         this.section = section;
         this.fileName = fileName;
         this.contentKey = contentKey;
+        this.imageTitle=imageTitle;
     }
 
     public String getSection() {

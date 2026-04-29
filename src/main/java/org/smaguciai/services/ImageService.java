@@ -33,13 +33,13 @@ public class ImageService {
     public Optional<HomeImage> getBySectionAndContentKey(String section, String contentKey){
         return repository.findBySectionAndContentKey(section, contentKey);
     }
-    public void saveOrUpdate (String section, String contentKey, MultipartFile file)throws IOException {
+    public void saveOrUpdate (String section, String contentKey, MultipartFile file, String title)throws IOException {
         if(file==null|| file.isEmpty()) return;
 
 
         HomeImage image = repository
                 .findBySectionAndContentKey(section, contentKey)
-                .orElse(new HomeImage(section, null, contentKey));
+                .orElse(new HomeImage(section, null, contentKey,title));
         if (image.getPublicId() !=null && !image.getPublicId().isBlank()){
             cloudinary.uploader().destroy(image.getPublicId(), ObjectUtils.emptyMap());
         }
