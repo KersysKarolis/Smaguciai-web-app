@@ -5,7 +5,7 @@
 <section th:fragment="personage" class="personage__section" id="personage">
     <div class="personage__bg"></div>
     <div class="personage__strip">
-        <h2>PERSONAZAI</h2>
+        <h2>PERSONAŽAI</h2>
     </div>
     <div class="personage__content__container">
 
@@ -13,18 +13,18 @@
             <div class="personage__text__content--upper">
                 <p class="upper" th:text="${personageUpper}">Virsutinis tekstas Admin</p>
             </div>
-            <div class="personage__text__content--lower">
+           <div class="personage__text__content--lower">
                 <p class="lower" th:text="${personageLower}">Apatinis tekstas Admin</p>
             </div>
          </div>
         <div class="carousel__background">
         <div class="embla">
-            <div class="embla__container">
+            <div class="embla__container"
+                 th:if="${images['home.personage.image'] != null}">
                 <div class="embla__item"
-                     th:if="${images['home.personage.image'] != null}"
                      th:each="img : ${images['home.personage.image'].values()}">
                     <div class="carousel">
-                        <img th:src="${img.fileName}"
+                        <img th:src="${img.fileName != null} ? @{${img.fileName}} : '/images/logo.png'"
                              th:alt="${img.contentKey}">
                         <h3 th:utext="${img.imageTitle}"></h3>
                     </div>
@@ -35,12 +35,10 @@
 
         <div class="personage__gallery__container">
 
-            <div class="personage__item__row">
+            <div class="personage__item__row"  th:if="${images['home.personage.image']!= null}">
             <div class="personage__item"
-                 th:if="${images['home.personage.image']!= null}"
               th:each="img:${images['home.personage.image'].values()}">
-                <img
-                th:src="${img.fileName}"
+                <img th:src="${img.fileName != null} ? @{${img.fileName}} : '/images/logo.png'"
                 th:alt="${img.contentKey}">
                 <h3 th:utext="${img.imageTitle}"></h3>
             </div>

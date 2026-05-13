@@ -20,7 +20,7 @@
     <div class="program__item program__item--left program__content--purple">
       <div class="program__image program__image-left">
         <img th:if="${images['home.program.image']?.teminiai != null}"
-             th:src="${images['home.program.image'].teminiai.fileName}"
+             th:src="${images['home.program.image'].teminiai.fileName != null} ? @{${images['home.program.image'].teminiai.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -32,7 +32,7 @@
     <div class="program__item program__item--right program__content--red">
       <div class="program__image program__image-right">
         <img th:if="${images['home.program.image']?.muzikiniai !=null}"
-        th:src="${images['home.program.image'].muzikiniai.fileName}"
+             th:src="${images['home.program.image'].muzikiniai.fileName != null} ? @{${images['home.program.image'].muzikiniai.fileName}} : '/images/logo.png'"
         alt="">
       </div>
       <div class="program__content">
@@ -44,7 +44,7 @@
     <div class="program__item program__item--left program__content--orange">
       <div class="program__image program__image-left">
         <img th:if="${images['home.program.image']?.ekspermentai !=null}"
-             th:src="${images['home.program.image'].ekspermentai.fileName}"
+             th:src="${images['home.program.image'].ekspermentai.fileName != null} ? @{${images['home.program.image'].ekspermentai.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -56,7 +56,7 @@
     <div class="program__item program__item--right program__content--pink">
       <div class="program__image program__image-right">
         <img th:if="${images['home.program.image']?.burbulinis !=null}"
-             th:src="${images['home.program.image'].burbulinis.fileName}"
+             th:src="${images['home.program.image'].burbulinis.fileName != null} ? @{${images['home.program.image'].burbulinis.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -68,7 +68,7 @@
     <div class="program__item program__item--left program__content--blue">
       <div class="program__image program__image-left">
         <img th:if="${images['home.program.image']?.laikinos !=null}"
-             th:src="${images['home.program.image'].laikinos.fileName}"
+             th:src="${images['home.program.image'].laikinos.fileName != null} ? @{${images['home.program.image'].laikinos.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -80,7 +80,7 @@
     <div class="program__item program__item--right program__content--orange">
       <div class="program__image program__image-right">
         <img th:if="${images['home.program.image']?.veiduku !=null}"
-             th:src="${images['home.program.image'].veiduku.fileName}"
+             th:src="${images['home.program.image'].veiduku.fileName != null} ? @{${images['home.program.image'].veiduku.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -89,10 +89,10 @@
       </div>
 
     </div>
-    <div class="program__item program__item--left program__content--red">
+    <div class="program__item program__item--left program__content--red red__bottom">
       <div class="program__image program__image-left">
         <img th:if="${images['home.program.image']?.balionu !=null}"
-             th:src="${images['home.program.image'].balionu.fileName}"
+             th:src="${images['home.program.image'].balionu.fileName != null} ? @{${images['home.program.image'].balionu.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -101,10 +101,10 @@
       </div>
 
     </div>
-    <div class="program__item program__item--right program__content--purple">
+    <div class="program__item program__item--right program__content--purple last__purple">
       <div class="program__image program__image-right">
         <img th:if="${images['home.program.image']?.pabaiga !=null}"
-             th:src="${images['home.program.image'].pabaiga.fileName}"
+             th:src="${images['home.program.image'].pabaiga.fileName != null} ? @{${images['home.program.image'].pabaiga.fileName}} : '/images/logo.png'"
              alt="">
       </div>
       <div class="program__content">
@@ -122,28 +122,28 @@
       <div class="additional__item">
         <h4>PINJATA</h4>
         <img th:if="${images['home.program.image']?.pinjata != null}"
-        th:src="${images['home.program.image'].pinjata.fileName}"
+             th:src="${images['home.program.image'].pinjata.fileName != null} ? @{${images['home.program.image'].pinjata.fileName}} : '/images/logo.png'"
         alt="">
         <h4>25 EUR.</h4>
       </div>
       <div class="additional__item">
         <h4>PUNCH BOX</h4>
         <img th:if="${images['home.program.image']?.punchBox != null}"
-             th:src="${images['home.program.image'].punchBox.fileName}"
+             th:src="${images['home.program.image'].punchBox.fileName != null} ? @{${images['home.program.image'].punchBox.fileName}} : '/images/logo.png'"
              alt="">
         <h4>25 EUR.</h4>
       </div>
       <div class="additional__item">
         <h4>CUKRAUS VATA</h4>
         <img th:if="${images['home.program.image']?.sugar != null}"
-             th:src="${images['home.program.image'].sugar.fileName}"
+             th:src="${images['home.program.image'].sugar.fileName != null} ? @{${images['home.program.image'].sugar.fileName}} : '/images/logo.png'"
              alt="">
         <h4>40 EUR.</h4>
       </div>
       <div class="additional__item">
         <h4>BURBULU FIESTA</h4>
         <img th:if="${images['home.program.image']?.bubble != null}"
-             th:src="${images['home.program.image'].bubble.fileName}"
+             th:src="${images['home.program.image'].bubble.fileName != null} ? @{${images['home.program.image'].bubble.fileName}} : '/images/logo.png'"
              alt="">
         <h4>40 EUR.</h4>
       </div>

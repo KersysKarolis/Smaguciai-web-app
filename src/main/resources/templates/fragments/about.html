@@ -7,13 +7,13 @@
     <div class="decor-layer" id="about-decor"></div>
     <!-- susipazinkime juosta -->
     <div class="about-title-strip">
-        <h2>Susipažinkime!</h2>
+        <h2>SUSIPAŽINKIME!</h2>
     </div>
     <div class="about-wrapper">
         <div class="about-composition">
         <div class="about-image">
             <img th:if="${images['home.about.image']?.about !=null}"
-            th:src="${images['home.about.image'].about.fileName}"
+            th:src="${images['home.about.image'].about.fileName != null} ? @{${images['home.about.image'].about.fileName}} : '/images/logo.png'"
             alt="">
         </div>
         <div class="about-text">

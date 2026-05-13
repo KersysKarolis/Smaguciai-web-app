@@ -9,7 +9,7 @@
         logo tekstas-->
     <div class="hero-content">
         <img th:if="${images['home.header.image']?.banner !=null}"
-                 th:src="${images['home.header.image'].banner.fileName}"
+             th:src="${images['home.header.image'].banner.fileName != null} ? @{${images['home.header.image'].banner.fileName}} : '/images/logo.png'"
                  alt="">
       <!--  <h1 th:text="${heroTitle}">SMAGUCIAI</h1>
         <p th:text="${heroSubtitle}">Personazai vaikams</p> -->

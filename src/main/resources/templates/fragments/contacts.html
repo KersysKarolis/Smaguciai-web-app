@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <body>
-$END$
+<section th:fragment="contacts" class="contact__section">
+  <div class="contact__bg">
+    <div class="contact__strip">
+      <h3 class="contacts-content">KONTAKTAI</h3>
+    </div>
+    <div class="contact__container">
+      <a class="contact-item" href="tel:+37065672557">
+        <img class="contact-item__icon " src="/images/decor/phone.svg" alt="">
+        <span class="contact-item__text">+37065672557</span>
+      </a>
+
+      <a class="contact-item" href="https://www.facebook.com/smaguciai" target="_blank" rel="noopener noreferrer">
+        <img class="contact-item__icon " src="/images/decor/facebook.svg" alt="">
+        <span class="contact-item__text">Smagučiai-personažai vaikams</span>
+      </a>
+
+      <a class="contact-item" href="mailto:smaguciusvente@gmail.com">
+        <img class="contact-item__icon " src="/images/decor/mail.svg" alt="">
+        <span class="contact-item__text">smaguciusvente@gmail.com</span>
+      </a>
+
+      <a class="contact-item" href="https://www.instagram.com/smaguciai" target="_blank" rel="noopener noreferrer">
+        <img class="contact-item__icon " src="/images/decor/insta.svg" alt="">
+        <span class="contact-item__text">smaguciai</span>
+      </a>
+    </div>
+  </div>
+</section>
 </body>
 </html>
