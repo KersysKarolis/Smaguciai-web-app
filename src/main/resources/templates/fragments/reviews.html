@@ -4,14 +4,31 @@
 <body>
 <section th:fragment="reviews" class="reviews__section" id="reviews">
   <div class="reviews__bg"></div>
-  <div class="reviews__strip__container"></div>
-  <div class="reviews__carousel__container">\
-  <div class="reviews__carousel">
-    <img th:if="${images['home.review.image']?.reviewNo1 != null}"
-    th:src="${images['home.review.image'].reviewNo1.fileName}"
-    alt="">
+  <div class="reviews__strip__container">
+    <h4>REKOMENDACIJOS | ATSILIEPIMAI</h4>
   </div>
+<div class="reviews__carousel__container">
+    <div class="reviews-buttons">
+      <button class="reviews-prev">←</button>
+    </div>
+
+  <div class="embla reviews-embla">
+    <div class="embla__container " th:if="${images['home.review.image'] != null}">
+      <div class="embla__item"
+           th:each="img : ${images['home.review.image'].values()}">
+        <div class="carousel__item">
+        <img th:src="${img.fileName != null} ? @{${img.fileName}} : '/images/Atsiliepimai.png'"
+th:alt="${img.contentKey}"
+        >
+        </div>
+    </div>
+    </div>
   </div>
+    <div class="reviews-buttons">
+      <button class="reviews-next">→</button>
+    </div>
+  </div>
+
 </section>
 
 </body>

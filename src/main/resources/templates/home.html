@@ -6,7 +6,11 @@
     <link rel ="stylesheet" th:href="@{/css/home.css}">
     <link rel="stylesheet" th:href="@{/css/components/program.css}">
     <link rel="stylesheet" th:href="@{/css/components/personage.css}">
-
+    <link rel="stylesheet" th:href="@{/css/components/reviews.css}">
+  <link rel="stylesheet" th:href="@{/css/components/contacts.css}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Berkshire+Swash&family=Fredoka:wght@300..700&family=Oi&display=swap" rel="stylesheet">
 </head>
 <body class="home-layout">
 <div th:replace="fragments/hero::hero"></div>
@@ -14,10 +18,13 @@
 <div th:replace="fragments/about::about"></div>
 <div th:replace="fragments/program::program"></div>
 <div th:replace="fragments/personage::personage"></div>
+<div th:replace="fragments/reviews::reviews"></div>
+<div th:replace="fragments/contacts::contacts"></div>
 
 <script defer th:src="@{/js/navigation.js}"></script>
 <script defer src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 <script defer th:src="@{/js/personage.js}"></script>
+<script defer th:src="@{/js/reviews.js}"></script>
 
 
 </body>
