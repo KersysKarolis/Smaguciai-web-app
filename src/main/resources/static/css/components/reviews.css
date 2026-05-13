@@ -1,0 +1,160 @@
+.reviews__section{
+position:relative;
+}
+.reviews__bg{
+background: url("/images/decor/ProgramBackground.svg") center/100% no-repeat;
+position:absolute;
+inset: 0;
+z-index: 0;
+background-size: 100%, auto;
+height:auto;
+transform: scaleX(-1);
+background-position-y: 26%;
+}
+.reviews__strip__container{
+background: url("/images/decor/ProgramosLauzytaJuosta.svg") center/100% no-repeat;
+width:100%;
+position:relative;
+text-align: center;
+height: 5vw;
+background-color: transparent;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.reviews__strip__container h4{
+color: white;
+font-size: 1.2rem;
+}
+.reviews__carousel__container{
+height: 34vw;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction:row;
+background-image: url("/images/decor/AdditionalServices.svg");
+background-position: 8vw 2vw;
+background-repeat: no-repeat;
+background-size: 85%;
+margin-bottom:-3vw;
+position: relative;
+}
+.carousel__item{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ }
+ .carousel__item img{
+ width:22vw;
+ height:20vw;
+ border: 5px solid tan;
+ aspect-ratio:1/1;
+ object-fit:cover;
+ margin: 3vw;
+ border-radius: 5vw;
+box-shadow: 5px 13px 10px -1px whitesmoke;
+ }
+ .carousel__item h3{
+ background-color: orange;
+ width: clamp(10vw, 18vw, 20vw);
+ border-radius: 20%;
+ text-align: center;
+ margin-top: -4vw;
+ }
+ .reviews__carousel__container .embla  {
+ height:31vw;
+ }
+ .reviews-embla .embla__container{
+ display:flex;
+ }
+.reviews-embla .embla__item{
+flex: 0 0 33%;
+}
+.reviews-buttons{
+display:flex;
+justify-content:left;
+align-items:center;
+}
+.reviews-prev ,
+.reviews-next{
+backdrop-filter: blur(8px);
+border-radius:50%;
+height: 6vw;
+width: 6vw;
+gap: 3vw;
+margin-top: -5vw;
+background: white;
+opacity: 0.7;
+font-size:2.5vw;
+cursor: pointer;
+color:grey;
+border: none;
+box-shadow: 0 6px 20px rgba(210, 180, 140, 0.35);
+transition: transform 0.25s ease, box-shadow 0.1s ease, opacity 0.25s ease;
+}
+.reviews-prev:hover,
+.reviews-next:hover{
+behavior: smooth;
+transform:scale(1.12);
+box-shadow:0 8px 24px rgba(210,180,140, 0.85);
+}
+.reviews-prev:active ,
+.reviews-next:active{
+behavior:smooth;
+transform: scale(0.95);
+}
+.reviews-prev:before ,
+.reviews-next:before{
+display:inline-block;
+transition: transform 0.25s ease;
+}
+.reviews-next:hover{
+transform: translateX(3px);
+}
+.reviews-prev:hover{
+transform: translateX(-3px);
+}
+@media (max-width:1250px){
+.reviews__section{
+margin-top: -1vw;
+}
+.reviews__carousel__container{
+background-position: 8vw 2vw;
+}
+.reviews-buttons {
+
+}
+.reviews-next{
+transform: translateX(2vw);
+}
+.reviews-prev{
+transform: translateX(-1vw);
+}
+.reviews-next:hover{
+transform: translateX(2.5vw);
+}
+.reviews-prev:hover{
+transform: translateX(-1.5vw);
+}
+}
+@media (max-width:768px){
+.reviews-buttons {
+transform: translateY(-4vw);
+}
+.reviews__carousel__container{
+background-position: 8vw 3vw;
+}
+.reviews-next{
+transform: translateX(2vw);
+}
+.reviews-prev{
+transform: translateX(-1vw);
+}
+.reviews-next:hover{
+transform: translateX(2.5vw);
+}
+.reviews-prev:hover{
+transform: translateX(-1.5vw);
+}
+
+}
