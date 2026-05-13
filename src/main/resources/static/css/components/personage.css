@@ -1,6 +1,8 @@
 
 .personage__section{
 position:relative;
+height: auto;
+min-height: 170vw;
 }
 .personage__bg{
 background: url("/images/decor/ProgramBackground.svg") top center repeat;
@@ -9,7 +11,7 @@ inset:0;
 z-index:0;
 background-size: 100%, auto;
 height:auto;
-background-position-y: -100%;
+background-position-y: -144%;
 }
 .personage__strip{
 background: url("/images/decor/ProgramosLauzytaJuosta.svg") center/100% no-repeat;
@@ -18,16 +20,14 @@ position:relative;
 text-align: center;
 color: white;
 height: 100%;
-margin-top: -3vw;
 margin-bottom: 30px;
-background-color: var(--light-bg);
 }
 .personage__strip h2{
 position: relative;
 transform: translateY(25%);
+font-size: 1.2rem;
 }
 .personage__content__container{
-max-width:1400px;
 display: flex;
 flex-direction:column;
 align-items:center;
@@ -47,7 +47,6 @@ height:auto;
 text-align:center;
 background: url("/images/decor/PinkProgFlag.svg") center/150% no-repeat;
 width: 75vw;
-transform: translateX(-20%);
 }
 .personage__text__content--upper p{
 width: 56vw;
@@ -60,9 +59,9 @@ justify-content: center;
 }
 .personage__text__content--lower {
 text-align: center;
-background: url("/images/decor/OrangeProgFlag.svg") center/170% no-repeat;
+background: url("/images/decor/OrangeProgFlag.svg") center/150% no-repeat;
 width: 75vw;
-transform: translateX(20vw);
+transform: translateX(11vw);
 display: flex;
 }
 .personage__text__content--lower p{
@@ -85,7 +84,7 @@ align-items:center;
 .personage__item__row{
 display:grid;
 grid-template-columns: repeat(4,1fr);
-gap: 2%;
+gap: 0% 2%;
 width: 65vw;
 }
 .personage__item{
@@ -143,6 +142,11 @@ height: 45vw;
 }
 
 @media(max-width:1250px){
+.personage__section{
+height:auto;
+min-height:0;
+}
+
 .personage__text__content--upper {
 background: url("/images/decor/PinkProgFlag.svg") center/193% no-repeat;
 background-size: 183%;
@@ -157,7 +161,7 @@ overflow: hidden;
 .personage__text__content--lower {
 background: url("/images/decor/OrangeProgFlag.svg") center/170% no-repeat;
 background-size: 183%;
-width: 90vw;
+width: 80vw;
 transform: translate(8vw);
 }
 .personage__text__content--lower p {
@@ -168,10 +172,12 @@ overflow: hidden;
 .embla__container{
 display:flex;
 margin-left: -16px;
+margin-bottom: -14vw;
 }
 .embla__item{
 padding-left: 16px;
 flex: 0 0 var(--slide-size);
+max-width: 100%;
 }
 .carousel{
 display:flex;
@@ -180,9 +186,11 @@ align-items:center;
 flex-direction: column;
 }
 .carousel img{
-width:22vw;
-height:20vw;
-border: 5px solid tan;
+width: 20vw;
+height: 20vw;
+max-width: 100%;
+display: block;
+border: 5px solid white;
 aspect-ratio:1/1;
 object-fit:cover;
 margin: 3vw;
@@ -191,32 +199,33 @@ box-shadow: 5px 25px 10px -1px burlywood;
 }
 .carousel h3{
 background-color: orange;
-width: clamp(10vw, 18vw, 20vw);
+width: clamp(10vw, 19vw, 20vw);
 border-radius: 20%;
 text-align: center;
 margin-top: -4vw;
 }
 }
 @media(max-width:768px){
+
 .personage__text__content--upper {
  background-size: 183%;
  width: 90vw;
- transform: translate(0);
+transform: translate(-4vw);
  }
 .personage__text__content--lower {
 width: 90vw;
 background-size: 183%;
-transform: translate(8vw);
+transform: translate(5vw);
 }
 .personage__text__content--upper p {
 width: 75vw;
 height: 14vw;
-font-size: 2.4vw;
+font-size: 2.5vw;
 }
 .personage__text__content--lower p  {
 width: 75vw;
 height: 14vw;
-font-size: 2.4vw;
+font-size: 2.5vw;
 }
 .embla__item{
 flex: 0 0 var(--slide-size);

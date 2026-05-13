@@ -1,26 +1,45 @@
-.contacts__section {
-  padding: 30px 20px;
+.contact__section {
+  height:auto
 }
 
 .contact__bg {
 background-color: --light-bg;
 }
+.contact__strip{
+background: url("/images/decor/ProgramosLauzytaJuosta.svg") center/100% no-repeat;
+display:flex;
+justify-content:center;
+align-items:center;
+transform:translateY(-2vw);
+}
+.contacts-content{
+font-size: 1.2rem;
+color:white;
+}
+
 .contact__container{
 display:grid;
-grid-template-columns: (repeat(2, minmax(280px, 1fr));
-background: url("/images/decor/AdditionalServices.svg") center/100% no-repeat;
+grid-template-columns: repeat(1, 0.9fr 0.7fr);
+background: url("/images/decor/AdditionalServices.svg") center/110% no-repeat;
+height: 15vw;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
   text-decoration: none;
   color: #111;
-  font-size: 22px;
+  font-size: 2vw;
   font-weight: 700;
   line-height: 1.3;
   transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.contact-item:nth-child(odd){
+margin-left:10vw;
+}
+.contact-item:nth-child(even){
+
 }
 
 .contact-item:hover {
@@ -37,9 +56,26 @@ background: url("/images/decor/AdditionalServices.svg") center/100% no-repeat;
   font-size: 42px;
   line-height: 1;
 }
+.contact-item__icon .svgItem {
+     width: 3vw;
+     height: 3vw;
+     display: block;
+   }
 
 .contact-item__text {
   word-break: break-word;
+}
+.facebook{
+background:url("/images/decor/facebook.svg");
+}
+.phone{
+background:url("/images/decor/phone.svg");
+}
+.mail{
+background:url("/images/decor/mail.svg");
+}
+.insta{
+background:url("/images/decor/insta.svg");
 }
 
 @media (max-width: 1250px) {
@@ -49,13 +85,18 @@ background: url("/images/decor/AdditionalServices.svg") center/100% no-repeat;
   }
 
   .contact-item {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   .contact-item__icon {
-    font-size: 36px;
+   font-size: 3vw;
     width: 42px;
   }
+   .contact-item__icon .svgItem {
+     width: 3vw;
+     height: 3vw;
+     display: block;
+   }
 }
 
 @media (max-width: 768px) {
@@ -67,12 +108,15 @@ background: url("/images/decor/AdditionalServices.svg") center/100% no-repeat;
   }
 
   .contact-item {
-    font-size: 18px;
-    gap: 14px;
+   font-size: 0.6rem;
+    gap: 1.5vw;
   }
 
   .contact-item__icon {
-    font-size: 30px;
-    width: 34px;
+    font-size: 4vw;
+width: 1.6rem;
+  }
+  .contact__container{
+  grid-template-columns: repeat(1, 0.7fr 0.7fr);
   }
 }
