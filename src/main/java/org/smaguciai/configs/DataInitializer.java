@@ -53,15 +53,11 @@ public class DataInitializer {
             createIfMissing("home.personage.image", e.getLabel(), e.getLabel().toUpperCase(new Locale("lt","LT")));
 
         }
-        /*createIfMissing("home.personage.image", "liutukas","LIŪTUKAS");
-        createIfMissing("home.personage.image", "stitcas","STITČAS");
-        createIfMissing("home.personage.image","vienarage","VIENARAGĖ");
-        createIfMissing("home.personage.image","drugelis","DRUGELIS");
-        createIfMissing("home.personage.image","feja","FĖJA");
-        createIfMissing("home.personage.image","treciadiene","TREČIA-<br>DIENĖ");
-        createIfMissing("home.personage.image","elza","ELZA");
-        createIfMissing("home.personage.image","klouniuke","KLOUNIUKĖ");
-        */
+        createIfMissing("home.review.image", "atsiliepimasNr1", "atsiliepimas");
+        createIfMissing("home.review.image", "atsiliepimasNr2", "atsiliepimas");
+        createIfMissing("home.review.image", "atsiliepimasNr3", "atsiliepimas");
+        createIfMissing("home.review.image", "atsiliepimasNr4", "atsiliepimas");
+        createIfMissing("home.review.image", "atsiliepimasNr5", "atsiliepimas");
     }
 
     private void createIfMissing(String section, String contentKey,String title) {
