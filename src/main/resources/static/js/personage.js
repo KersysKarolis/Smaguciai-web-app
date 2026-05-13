@@ -17,6 +17,7 @@ align: 'start',
 dragFree: true,
 containScroll: false
 });
+
 emblaNode.addEventListener('wheel', wheelHandler,{passive:false});
 }
 }else{
