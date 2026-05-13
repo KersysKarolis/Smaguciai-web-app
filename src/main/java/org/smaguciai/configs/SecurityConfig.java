@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 public class SecurityConfig {
@@ -31,9 +32,10 @@ public class SecurityConfig {
                         "/uploads/**",
                                 "/h2-console/**").permitAll()
                         .requestMatchers("/admin/**", "/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/constructionSite/**").hasRole("ADMIN")
+                        //.requestMatchers("/constructionSite/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
-                .csrf(csrf ->csrf.ignoringRequestMatchers("/h2-console/**"))
+                .csrf(csrf ->csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                        .ignoringRequestMatchers("/h2-console/**"))
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .formLogin(form -> form
                         .loginPage("/login")
