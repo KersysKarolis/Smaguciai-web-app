@@ -61,13 +61,13 @@ public class AdminRestController {
     public ResponseEntity<Void> updateImage(@RequestParam MultipartFile file,
                               @RequestParam String section,
                               @RequestParam String contentKey,
-    @RequestParam String title)throws IOException {
+                                            @RequestParam(required = false, defaultValue = "")String title)throws IOException {
        imageService.saveOrUpdate(section, contentKey, file, title);
         return ResponseEntity.ok().build();
     }
     @GetMapping("/admin/content/getImage")
     @ResponseBody
-    public ResponseEntity<HomeImageDto> getImage (@RequestParam String section, @RequestParam String contentKey,@RequestParam String title){
+    public ResponseEntity<HomeImageDto> getImage (@RequestParam String section, @RequestParam String contentKey,@RequestParam(required = false, defaultValue = "") String title){
         return imageService.getBySectionAndContentKey(section, contentKey)
                 .map(image -> new HomeImageDto(
                         image.getSection(),

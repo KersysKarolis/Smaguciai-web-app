@@ -180,10 +180,15 @@ method: "POST",
 headers: csrfHeaders(),
 body:formData
 })
-.then(()=>{
+.then(res=>{
+if(!res.ok) throw new Error(`Įkėlimas nepavyko: ${res.status}`);
 alert("Nuotrauka issaugota");
 resetImageUploadState();
 loadCurrentImage();
+})
+.catch(err =>{
+console.error(err);
+alert("Nepavyko issaugoti nuotraukos");
 });
 
 

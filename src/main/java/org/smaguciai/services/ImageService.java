@@ -53,7 +53,6 @@ public class ImageService {
 
         image.setPublicId(publicId);
         image.setFileName(imageUrl);
-        image.setImageTitle(title);
         repository.save(image);
     }
 
@@ -68,7 +67,9 @@ public class ImageService {
                      } catch (IOException e){
                          throw new RuntimeException("Nepavyko istrinti failo is debesies", e);
                      }
-                     repository.delete(homeImage);
+                     homeImage.setFileName(null);
+                     homeImage.setPublicId(null);
+                     repository.save(homeImage);
                  }
 
          );
