@@ -53,6 +53,7 @@ public class ImageService {
 
         image.setPublicId(publicId);
         image.setFileName(imageUrl);
+        image.setImageTitle(title);
         repository.save(image);
     }
 

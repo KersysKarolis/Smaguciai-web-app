@@ -12,6 +12,7 @@ import org.smaguciai.repositories.OrderRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -50,7 +51,7 @@ public class DataInitializer {
 
         for(Characters e:Characters.values()){
             String title = e ==Characters.TREČIADIENĖ?"TREČIA-<br>DIENĖ": e.getLabel().toUpperCase(new Locale("lt","LT"));
-            createIfMissing("home.personage.image", e.getLabel(), e.getLabel().toUpperCase(new Locale("lt","LT")));
+            createIfMissing("home.personage.image", e.getLabel(), title);
 
         }
         createIfMissing("home.review.image", "atsiliepimasNr1", "atsiliepimas");
@@ -62,6 +63,13 @@ public class DataInitializer {
 
     private void createIfMissing(String section, String contentKey,String title) {
         imageRepository.findBySectionAndContentKey(section, contentKey)
+                .map(existing -> {
+                    if((existing.getImageTitle() ==null || existing.getImageTitle().isBlank() && title != null && !title.isBlank())){
+                        existing.setImageTitle(title);
+                        return imageRepository.save(existing);
+                    }
+                    return existing;
+                })
                 .orElseGet(()->imageRepository.save(new HomeImage(section, null, contentKey,title)));
     }
 
