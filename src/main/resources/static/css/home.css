@@ -641,13 +641,13 @@ height: 30rem;
     .about-composition{
         margin:0;
         flex-direction:column;
-        translate:transformY(0);
+        transform: translateY(0);
     }
 
     .about-image{
         position:static;
-        width: 40vw;
-        height: 40vw;
+        width: 10rem;
+        height: 10rem;
        transform: translate(-12vw, 3vw);
         display: flex;
         justify-content: center;
@@ -660,8 +660,8 @@ height: 30rem;
     }
 
     .about-text{
-        transform: translate(10vw, -10vw);
-        position:static;
+        transform: translate(12vw, -9vw);
+        position: relative;
         border-radius:50%;
         display:flex;
         justify-content:center;
@@ -670,22 +670,21 @@ height: 30rem;
     }
 
     .about-text img{
-   width: 55vw;
-   height: 50vw;
+   width: 14rem;
+   height: 12rem;
    object-fit: cover;
     }
 
     .text-content{
         padding:0;
         position:absolute;
-       transform: translate(16vw, 10vw);
+       transform: translate(11vw, 8vw);
     }
 
     .about-text p{
-        width: 45vw;
+        width: 20rem;
         height:auto;
         word-wrap: break-word;
-       font-size: 2.5vw;
     }
 }
 
