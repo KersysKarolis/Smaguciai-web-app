@@ -672,7 +672,7 @@ height: 30rem;
     .text-content{
         padding:0;
         position:fixed;
-       transform: translate(17vw, 8vw);
+       transform: translate(12vw, 8vw);
     }
 
     .about-text p{
@@ -683,79 +683,47 @@ height: 30rem;
 }
 
 
-@media(max-width: 480px){
-.header-btn{
-width: 70px;
-height:70px;
+@media(max-width: 560px){
+.mobile-menu-toggle{
+width: 2rem;
+height: 2rem;
 }
-}
+.hamburger{
 
-
-
-.main-container{
-display:flex;
-justify-content: center;
-flex-direction:column;
-gap:40px;
-/*margin-top:40px;*/
 }
-/* senas content apie mus css
-.content-apieMus, .content-atsiliepimai{
-background:white;
-border-radius:50%;
-padding:80px;
-max-width:800px;
-margin: -100px auto 0;
-text-align:center;
-/*position:relative;
-width: auto;
+.hamburger::before{
+top: -5px;
 }
-*/
-.content-apieMus{
-position:relative;
-background: #f79a0b;
-padding: 100px 20px;
+.hamburger::after{
+top: 5px;
 }
-/* naujas pridetas .about-bg, .about-text     .about-text{
-                                              position:relative;
-                                              max-width: 700px;
-                                              margin:auto;
-                                              background: #f3f3f3;
-                                               border-radius: 50px;
-                                               padding: 60 px;
-                                               text-align: center;
-                                               }*/
- .about-bg{
- position:absolute;
- inset: 0;
- background-size: cover;
- background-position: center;
- opacity: 0.15;
- }
-
-.content-apieMus h1{
-font-size: 36px;
-color: #4b57a3;
+.about-section {
+height: 30rem;
 }
-.content-apieMus p{
-font-size: 18px;
-line-height: 1.6;
-color: #4a4a4a;
+.about-title-strip{
+font-size: 0.7rem;
 }
-.content-apieMus, .content-atsiliepimai img{
-width:webkit-fill-available;
-display:block;
+.about-image {
+transform: translate(-12vw, 0vw);
+width: 12rem;
+height: 12rem;
 }
-.image-btn{
-position:absolute;
-bottom:20%;
-left:50%;
-transform: translateX(-50%);
-width: 150px;
-height:50px;
-background:transparent;
-border:none;
-cursor:pointer;
+.about-text img {
+width: 16rem;
+height: 15rem;
 }
-
+.text-content {
+transform: translate(7vw, 0vw);
+width: 15rem;
+height: 15rem;
+}
+.about-text p {
+font-size: 2.5vw;
+width: 20rem;
+height: auto;
+}
+.text-content p {
+max-width: 11rem;
+}
+}
 
