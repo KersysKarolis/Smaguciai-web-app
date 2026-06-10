@@ -689,41 +689,58 @@ width: 2rem;
 height: 2rem;
 }
 .hamburger{
-
+width:2.2vw;
 }
 .hamburger::before{
 top: -5px;
 }
+.hamburger::before, .hamburger::after {
+width: 2.2vw;
+}
 .hamburger::after{
 top: 5px;
 }
+.mobile-nav.active {
+height: 25rem;
+}
+.mobile-nav-links {
+gap: 1.3rem;
+}
+.mobile-nav-link {
+height: 1.5rem;
+}
 .about-section {
-height: 30rem;
+height: 36rem;
 }
 .about-title-strip{
-font-size: 0.7rem;
+font-size: 1rem;
+height: 2.0rem;
+margin-bottom: 2rem;
 }
 .about-image {
 transform: translate(-12vw, 0vw);
-width: 12rem;
-height: 12rem;
-}
-.about-text img {
-width: 16rem;
+width: 15rem;
 height: 15rem;
 }
+.about-text img {
+width: 18rem;
+height: 17rem;
+}
+.about-text {
+transform: translate(2vw, -7vw);
+}
 .text-content {
-transform: translate(7vw, 0vw);
+transform: translate(2.5rem, 1rem);
 width: 15rem;
 height: 15rem;
 }
 .about-text p {
-font-size: 2.5vw;
+font-size: 0.6rem;
 width: 20rem;
 height: auto;
 }
 .text-content p {
-max-width: 11rem;
+max-width: 12rem;
 }
 }
 
